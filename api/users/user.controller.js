@@ -75,7 +75,7 @@ module.exports = {
             else{
                 if(body.status == true){
                     const jwt = sign({result : resu[0]},"qwe1234",{
-                        expiresIn : Infinity
+                        // expiresIn : Infinity
                     });
                     return res.status(200).json({
                         status : 1,
