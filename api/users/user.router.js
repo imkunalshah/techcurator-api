@@ -4,6 +4,6 @@ const router = require("express").Router();
 router.post("/create",createUser);
 router.post("/login",login);
 router.get("/getusers",getusers);
-router.get("getuserbyid/:id",getuserbyid);
+router.get("/getuserbyid/:id",getuserbyid);
 
 module.exports = router;
