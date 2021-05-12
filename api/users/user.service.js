@@ -2,14 +2,18 @@ const connection = require("../../config/database");
 
 module.exports = {
     create: (data, callback) => {
+        var current = new Date();
+        var utc = current.getTime() + (current.getTimezoneOffset() * 60000);
+        var newCurrent = new Date(utc+(3600000*+5.5));
+        const dandt = newCurrent.getFullYear()+"-"+(newCurrent.getMonth()+1)+"-"+newCurrent.getDate()+" "+newCurrent.getHours()+":"+newCurrent.getMinutes()+":"+newCurrent.getSeconds();
         connection.query(`insert into users (user_id,email,full_name,phone,date_joined,date_modified,user_type,deleted,last_login) values (?,?,?,?,?,?,?,?,?)`,
             [
                 data.user_id,
                 data.email,
                 data.full_name,
                 data.phone,
-                data.date_joined,
-                data.date_modified,
+                dandt,
+                dandt,
                 data.user_type,
                 data.deleted,
                 data.last_login
