@@ -70,7 +70,7 @@ module.exports = {
             connection.query(`update users set email = ? , date_modified = ? where user_id = ?`,
                 [
                     data.email,
-                    data.dandt,
+                    dandt,
                     id
                 ], (error, results, fields) => {
                     if (error) {
@@ -96,7 +96,7 @@ module.exports = {
             connection.query(`update users set phone = ? , date_modified = ? where user_id = ?`,
                 [
                     data.phone,
-                    data.dandt,
+                    dandt,
                     id
                 ], (error, results, fields) => {
                     if (error) {
@@ -109,7 +109,7 @@ module.exports = {
             connection.query(`update users set last_login = ? , date_modified = ? where user_id = ?`,
                 [
                     data.last_login,
-                    data.dandt,
+                    dandt,
                     id
                 ], (error, results, fields) => {
                     if (error) {
@@ -122,7 +122,7 @@ module.exports = {
             connection.query(`update users set deleted = ? , date_modified = ? where user_id = ?`,
                 [
                     data.deleted,
-                    data.dandt,
+                    dandt,
                     id
                 ], (error, results, fields) => {
                     if (error) {
@@ -140,7 +140,7 @@ module.exports = {
                     data.phone,
                     data.deleted,
                     data.last_login,
-                    data.dandt,
+                    dandt,
                     id
                 ], (error, results, fields) => {
                     if (error) {
