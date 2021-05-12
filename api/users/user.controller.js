@@ -99,7 +99,7 @@ module.exports = {
             if(error){
                 return res.status(400).json({
                     status:0,
-                    message:"error",
+                    message:"error"
                 });
             }
             else{
