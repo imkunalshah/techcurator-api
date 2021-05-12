@@ -58,7 +58,9 @@ module.exports = {
 
     updateUser: (id, data, callback) => {
         var current = new Date();
-        const dandt = current.getFullYear()+"-"+(current.getMonth()+1)+"-"+current.getDate()+" "+current.getHours()+":"+current.getMinutes()+":"+current.getSeconds();
+        var utc = current.getTime() + (current.getTimezoneOffset() * 60000);
+        var newCurrent = new Date(utc+(3600000*+5.5));
+        const dandt = newCurrent.getFullYear()+"-"+(newCurrent.getMonth()+1)+"-"+newCurrent.getDate()+" "+newCurrent.getHours()+":"+newCurrent.getMinutes()+":"+newCurrent.getSeconds();
         if (data.email != null) {
             // update users set email = ? , isVerified = ? , phone = ? , fullName = ? , location = ? , image = ? , userType = ? , idProof = ? , category = ? , subCategory = ? where id = ?
             connection.query(`update users set email = ? , date_modified = ? where user_id = ?`,
