@@ -2,7 +2,7 @@ const connection = require("../../config/database");
 
 module.exports = {
     create: (data, callback) => {
-        connection.query(`insert into users (user_id,email,full_name,phone,date_joined,last_updated,user_type,deleted,last_login) values (?,?,?,?,?,?,?,?,?)`,
+        connection.query(`insert into users (user_id,email,full_name,phone,date_joined,date_modified,user_type,deleted,last_login) values (?,?,?,?,?,?,?,?,?)`,
             [
                 data.user_id,
                 data.email,
