@@ -100,7 +100,6 @@ module.exports = {
                 return res.status(400).json({
                     status:0,
                     message:"error",
-                    data:error
                 });
             }
             else{
