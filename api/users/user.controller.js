@@ -59,14 +59,14 @@ module.exports = {
     },
     login:(req,res) => {
         const body = req.body;
-        getUserById(body.user_id,(error,results)=>{
+        getUserById(body.user_id,(error,resu)=>{
             if(error){
                 return res.status(400).json({
                     status : 0,
                     message : error
                 });
             }
-            else if(!results[0]){
+            else if(!resu[0]){
                 return res.status(400).json({
                     status: 0,
                     message:"User Not Found"
@@ -74,7 +74,7 @@ module.exports = {
             }
             else{
                 if(body.status == true){
-                    const jwt = sign({result : results[0]},process.env.JWT_ENC_KEY,{
+                    const jwt = sign({result : resu[0]},"qwe1234",{
                         expiresIn : Infinity
                     });
                     return res.status(200).json({
