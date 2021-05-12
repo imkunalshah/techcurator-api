@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use("/api/users",userRouter);
 
 
-app.listen(process.env.APP_PORT,() =>{
+app.listen(process.env.APP_PORT || 3000,() =>{
     console.log("Server running !! ");
 })
 module.exports = app;
