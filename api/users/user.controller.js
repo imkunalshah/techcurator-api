@@ -1,4 +1,4 @@
-const {create,getUsers,getUserById,updateUser} = require("./user.service");
+const {create,getUsers,getUserById,updateUser,getuserbyPhone} = require("./user.service");
 const {sign} = require("jsonwebtoken");
 require('dotenv').config();
 module.exports = {
@@ -57,6 +57,25 @@ module.exports = {
             }
         });
     },
+    getuserbyphone : (req,res) =>{
+        const phone = req.params.phone;
+        getuserbyPhone(phone,(error,result) =>{
+            if(error){
+                return res.status(400).json({
+                    status:0,
+                    data:error
+                });
+            }
+            else{
+                return res.status(200).json({
+                    status : 1,
+                    message:"users by phone get successfully",
+                    data: result
+                })
+            }
+        });
+    },
+
     login:(req,res) => {
         const body = req.body;
         getUserById(body.user_id,(error,resu)=>{

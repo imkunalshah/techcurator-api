@@ -60,6 +60,17 @@ module.exports = {
             });
     },
 
+    getuserbyPhone: (id, callback) => {
+        connection.query(`select * from users where phone = ?`, [id],
+            (error, results, fields) => {
+                if (error) {
+                    return callback(error);
+                } else {
+                    return callback(null, results);
+                }
+            });
+    },
+
     updateUser: (id, data, callback) => {
         var current = new Date();
         var utc = current.getTime() + (current.getTimezoneOffset() * 60000);
