@@ -1,9 +1,22 @@
-const {createPool} = require("mysql");
-const connection = createPool({
-    host:"us-cdbr-east-03.cleardb.com",
-    user:"b3919a308628eb",
-    password:"60f903c2",
-    database:"heroku_ba9f8c247340546"
-});
+const mongoose = require('mongoose');
 
-module.exports = connection;
+const connectDB = async () => {
+    const con = await mongoose.connect(process.env.MONGO_URI,{
+        useNewUrlParser:true,
+        useUnifiedTopology:true,
+        retryWrites:true,
+        w: "majority"
+    }, (err,res) => {
+        if (!err) {
+            console.log('Connected to MongoDB!!!')
+        }
+        else {
+            console.log(err)
+        }
+        
+    });
+
+    // console.log(`MongoDB connected: ${con.connection.host}`);
+}
+
+module.exports = connectDB;
