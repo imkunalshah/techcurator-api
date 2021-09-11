@@ -9,7 +9,7 @@ const connectDB = require('./config/database');
 //connectDB
 connectDB();
 
-//routes
+//routes -
 const questions = require("./api/questions/questions.router");
 
 const app = express();
