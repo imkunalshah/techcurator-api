@@ -1,10 +1,10 @@
 const express = require('express');
-const dotenv = require('dotenv');
+const dotenv = require('dotenv').config();
 const morgan = require('morgan');
 const connectDB = require('./config/database');
 
 //load env vars
-dotenv.config({path:'./.env'});
+// dotenv.config({path:'./.env'});
 
 //connectDB
 connectDB();
